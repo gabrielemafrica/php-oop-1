@@ -9,6 +9,8 @@
     require 'db.php';
     ?>
     <title>movie-php</title>
+      <!-- Includi Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
 
@@ -51,10 +53,33 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>  
 
+    <!-- creo schede -->
+    <div class="container d-flex flex-wrap gap-4" id="app">
+        <div class="card" style="width: 18rem;" v-for="(item, index) in movies" :key="index">
+            <img :src="item.imgURL" class="card-img-top" alt="item.title">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" v-for="(genere, i) in item.genre" :key="i">{{ genere }}</li>
+                <li class="list-group-item">{{ item.language }}</li>
+                <li class="list-group-item">{{ item.duration }}</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>  
+    </div>
 
-
-
+    <!-- connessioni -->
+    <script src="https://unpkg.com/vue@3"></script>
+    <script  type="text/javascript" src="js/js.js"></script>
     
 </body>
 </html>
