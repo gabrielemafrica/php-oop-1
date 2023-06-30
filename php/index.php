@@ -9,16 +9,17 @@
 
 <?php
 
+
 class Movie {
     public $title;
-    public $genre;
+    public Array $genre;
     public $language;
     public $duration;
     public $imgURL;
 
     //costruttore
 
-    public function __construct($title, $genre, $language, $duration, $imgURL) {
+    public function __construct($title, $language, $duration, $imgURL, ...$genre) {
         $this->title = $title;
         $this->genre = $genre;
         $this->language = $language;
@@ -32,11 +33,19 @@ class Movie {
         return $this->title;
     }
     public function getGenre() {
-        return $this->genre;
+        $risultato = '';
+        foreach ($this->genre as $key => $value) {
+            $risultato .= $value;
+            if ($key !== (count($this->genre) - 1)) {
+                $risultato .= ', ';
+            }
+        }  
+        return $risultato;
     }
     public function getLanguage() {
-        return $this->language;
+        return $this->language;  
     }
+
     public function getDuration() {
         return $this->duration;
     }
@@ -64,9 +73,9 @@ class Movie {
 
 //create new movies
 
-$new_movie1 = new Movie("Star Wars", "Action", "English", "1080", "https://mashtrelo.com/wp-content/uploads/2017/11/star-wars-posters-from-around-the-world.jpg");
+$new_movie1 = new Movie("Star Wars", "English", "1080", "https://mashtrelo.com/wp-content/uploads/2017/11/star-wars-posters-from-around-the-world.jpg", "Action", "Adventure");
 
-$new_movie2 = new Movie("Iron Man", "Action", "English", "1080", "https://www.usatoday.com/gcdn/media/USATODAY/USATODAY/2013/04/30/ansin-standard-3_4.jpg");
+$new_movie2 = new Movie("Iron Man", "English", "1080", "https://www.usatoday.com/gcdn/media/USATODAY/USATODAY/2013/04/30/ansin-standard-3_4.jpg", "Action", "Heroes");
 
 ?>
 </head>
