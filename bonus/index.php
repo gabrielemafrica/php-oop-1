@@ -55,7 +55,45 @@
                 </table>
             </div>
         </div>
-    </div>  
+    </div> 
+    <!-- add new scheda -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <h1>Add New Movie</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="add_movie.php" method="POST" @submit.prevent="aggiungi">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Title" v-model="newMovies.title">
+                    </div>
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <input type="text" class="form-control" id="genre" name="genre" placeholder="Genre" v-model="newMovies.genre">
+                    </div>
+                    <div class="form-group">
+                        <label for="language">Language</label>
+                        <input type="text" class="form-control" id="language" name="language" placeholder="Language" v-model="newMovies.language">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration</label>
+                        <input type="text" class="form-control" id="duration" name="duration" placeholder="Duration" v-model="newMovies.duration">
+                    </div>
+                    <div class="form-group">
+                        <label for="img_url">Image URL</label>
+                        <input type="text" class="form-control" id="img_url" name="img_url" placeholder="Image URL" v-model="newMovies.imgURL">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                    <a href="index.php" class="btn btn-secondary">Back</a>
+                </form>
+            </div>
+        </div>
+
 
     <!-- creo schede -->
     <div class="container d-flex flex-wrap gap-4" id="app">
